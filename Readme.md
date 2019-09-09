@@ -41,5 +41,5 @@ Add additional notes about how to deploy this on a live system
 
 ## Built With
 
-* [Rust](https://www.rust-lang.org/) - The web framework used
+* [Rust](https://www.rust-lang.org/)
 * [Cargo](https://doc.rust-lang.org/cargo/getting-started/first-steps.html) - Dependency Management
