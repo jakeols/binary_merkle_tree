@@ -27,40 +27,20 @@ impl<'a> Node<'a> {
 
     //  insert(key, value), @return string (new root hash)
   pub fn insert(&mut self, key: &'a str, new_val: &'a str) {
-
     // create new root
     let mut new_root_node = Node {hash: "roothash", val: "", l: None, r: None};
 
     // create new leaf
     let new_leaf_node = Node { hash: key, val: new_val, l: None, r: None};
     let new_boxed_leaf_node = Some(Box::new(new_leaf_node));
+    
+    // set root nodes
     new_root_node.r = new_boxed_leaf_node;
     new_root_node.l = Some(Box::new(self.clone()));
+
+    // re-assign x to our new tree
     *self = new_root_node;
-    // println!("{:?}", new_root_node);
-    
-
-      
-      // traverse to the right and insert
-        // let target_node = &mut self.r;
-        // match target_node {
-        //     &mut Some(ref mut subnode) => subnode.insert(key, new_val),
-        //     &mut None => {
-
-        //         let new_node = Node {hash: key, val: new_val, l: None, r: None };
-        //         let boxed_node = Some(Box::new(new_node));
-
-        //         // create parent with target
-                
-        //         *target_node = boxed_node;
-
-
-        //     }
-        // }
-
-    
-
-       // println!("{:?}", self);
+ 
 
     }
     // generateMerklePath @param key, @return array/list
@@ -76,7 +56,6 @@ fn main () {
     let hash_result = hasher.result_str(); // result of hashing the value
     // println!("{}", hash_result);
     
-
     let mut x = Node {hash: "mhash", val: "m", l: None, r: None };
     x.insert("zkey", "z");
     x.insert("jkey", "j");
