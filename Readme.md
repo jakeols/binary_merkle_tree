@@ -5,13 +5,11 @@ A simple implementation of a Binary Merkle Tree, written in Rust.
 
 ### Prerequisites
 
-You'll need Rust, and Cargo (the Rust package manager) installed. You can find steps on how to do that here <add link>
+You'll need <a href="https://www.rust-lang.org/">Rust</a>, and <a href="https://crates.io/">Cargo</a (the Rust package manager) installed.
 
 ### Installing from Source
 
 If you'd like to build the binary yourself, follow these steps. 
-
-Say what the step will be
 
 ```
 git clone <repo>
@@ -30,14 +28,9 @@ cargo run
 ```
 
 
-## Running the tests
-
-Test data will be added here
-
-
 ## Deployment
 
-Add additional notes about how to deploy this on a live system
+Add additional notes will be added here. 
 
 ## Built With
 
