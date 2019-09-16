@@ -5,7 +5,7 @@ A simple implementation of a Binary Merkle Tree, written in Rust.
 
 ### Prerequisites
 
-You'll need <a href="https://www.rust-lang.org/">Rust</a>, and <a href="https://crates.io/">Cargo</a (the Rust package manager) installed.
+You'll need <a href="https://www.rust-lang.org/">Rust</a>, and <a href="https://crates.io/">Cargo</a> (the Rust package manager) installed.
 
 ### Installing from Source
 
