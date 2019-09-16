@@ -12,7 +12,7 @@ You'll need <a href="https://www.rust-lang.org/">Rust</a>, and <a href="https://
 If you'd like to build the binary yourself, follow these steps. 
 
 ```
-git clone <repo>
+git clone https://github.com/jakeols/binary_merkle_tree
 ```
 
 Compile the binary 
