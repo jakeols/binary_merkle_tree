@@ -14,6 +14,7 @@ use self::crypto::digest::Digest;
 use self::crypto::sha2::Sha512; // use crypto lib for this bc of string implementation
 use std::str;
 
+
 // root hash, i think this is necessary
 
 
@@ -25,6 +26,8 @@ struct Node<'a> {
     l: Option<Box<Node<'a>>>, // can use box / rc etc
     r: Option<Box<Node<'a>>>,
 }
+
+
 
 impl<'a> Node<'a> {
 
@@ -52,13 +55,49 @@ impl<'a> Node<'a> {
     //return test_hash;
 
     }
-    // generateMerklePath @param key, @return array/list
-    pub fn generate_merkle_path(key: &'a str){
+    // generateMerklePath @param key, @return vector 
+    pub fn generate_merkle_path(&mut self, key: &'a str) -> Vec<Node> {
+        let mut vec = Vec::new();
+        let mut path = Vec::new();
 
+        let mut temp_self = self.clone();
+
+        loop {
+            println!("Loop:");
+             if temp_self.l.is_none() == true || temp_self.l.is_none() == true {
+                 break;
+            }
+
+            else {
+                
+            vec.push(temp_self.l.clone());
+            temp_self.l = None;
+
+            vec.push(temp_self.r.clone());
+            temp_self.r = None;
+            println!("{:?}", vec);
+            println!("Loop done.");
+            }
+        }
+        
+
+        return path;
+        
     }
+
+ pub fn delete(&mut self, key: &'a str){
+    //deletes node and re-calculates hashes for tree
+}
+
+pub fn verify_merkle_path(&mut self, Vec<Node> merkle_path){
     
+}
+
+
 
 }
+
+
 
 pub fn hash_string(val: &[u8]) -> String{
     let mut hasher = Sha512::new();
@@ -84,6 +123,11 @@ fn main () {
     
     let hashed = hash_string(b"z");
     x.insert(&hashed, "z");
+
+    let hashed_two = hash_string(b"k");
+    x.insert(&hashed_two, "k");
    
-   println!("{:?}", x);
+   //println!("{:?}", x);
+
+   x.generate_merkle_path("z");
 }
