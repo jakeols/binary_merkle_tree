@@ -52,9 +52,8 @@ impl<'a> Node<'a> {
     // re-assign x to our new tree
     *self = new_root_node;
 
-    //return test_hash;
-
     }
+
     // generateMerklePath @param key, @return vector 
     pub fn generate_merkle_path(&mut self, key: &'a str) -> Vec<Node> {
         let mut vec = Vec::new();
@@ -62,8 +61,8 @@ impl<'a> Node<'a> {
 
         let mut temp_self = self.clone();
 
+        // vector rep
         loop {
-            println!("Loop:");
              if temp_self.l.is_none() == true || temp_self.l.is_none() == true {
                  break;
             }
@@ -75,23 +74,44 @@ impl<'a> Node<'a> {
 
             vec.push(temp_self.r.clone());
             temp_self.r = None;
-            println!("{:?}", vec);
-            println!("Loop done.");
+          //  println!("{:?}", vec);
             }
         }
+
+
         
 
         return path;
         
     }
 
- pub fn delete(&mut self, key: &'a str){
-    //deletes node and re-calculates hashes for tree
+ pub fn delete(&mut self, key: &'a str) -> bool {
+     
+
+	if key == self.hash {
+			return true;
+		}
+
+        match self.r {
+            None => false,
+            Some(ref mut node) => node.delete(key)
+        }
+		
+		// else {
+		// 	match self.val {
+		// 		None => false,
+		// 		Some(ref mut node) => node.delete(key)
+		// 	}
+		// }
+        
+	
+
+
 }
 
-pub fn verify_merkle_path(&mut self, Vec<Node> merkle_path){
-    
-}
+// pub fn verify_merkle_path(&mut self, Vec<Node> merkle_path){
+
+// }
 
 
 
@@ -127,7 +147,11 @@ fn main () {
     let hashed_two = hash_string(b"k");
     x.insert(&hashed_two, "k");
    
-   //println!("{:?}", x);
+   println!("{:?}", x);
+   println!("deleting...");
+   let key_to_del = "2af8a9104b3f64ed640d8c7e298d2d480f03a3610cbc2b33474321ec59024a48592ea8545e41e09d5d1108759df48ede0054f225df39d4f0f312450e0aa9dd25";
+   x.delete(key_to_del);
+   println!("{:?}", x);
 
    x.generate_merkle_path("z");
 }
