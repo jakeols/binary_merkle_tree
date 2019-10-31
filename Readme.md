@@ -1,6 +1,6 @@
 # Binary Merkle Tree 
 
-A simple implementation of a Binary Merkle Tree, written in Rust.
+<s>A simple implementation of a Binary Merkle Tree, written in Rust.</s> Me tinkering in Rust. 
 
 
 ### Prerequisites
